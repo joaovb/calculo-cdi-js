@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Juros Compostos</title>
+    <link rel="stylesheet" href="app/styles.css" />
+
+    <style>
+      /* Estilo para o Valor Total Líquido */
+      #total-net-value {
+        color: green; /* Cor verde */
+        font-weight: bold; /* Negrito */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Simulador de Juros Compostos</h1>
+      <div class="input-container">
+        <label for="initial-amount">Valor Inicial:</label>
+        <input type="text" id="initial-amount" required="required" />
+      </div>
+      <div class="input-container">
+        <label for="monthly-contribution">Valor Mensal:</label>
+        <input type="number" id="monthly-contribution" />
+      </div>
+      <div class="input-container">
+        <label for="annual-interest-rate">Taxa de Juros Anual (%):</label>
+        <input type="number" id="annual-interest-rate" />
+      </div>
+      <div class="input-container">
+        <label for="period-months">Período (em meses):</label>
+        <input type="number" id="period-months" />
+      </div>
+      <div class="input-container">
+        <label for="ir-rate">IR (%):</label>
+        <input type="number" id="ir-rate" />
+      </div>
+      <div class="input-container">
+        <label for="iof-rate">IOF (%):</label>
+        <input type="number" id="iof-rate" />
+      </div>
+      <div id="botoes">
+        <button class="botoes" onclick="calculate()">Calcular</button>
+        <button class="botoes" onclick="resetForm()">Zerar dados</button>
+      </div>
+
+      <div
+        id="message"
+        style="
+          display: none;
+          background-color: orange;
+          padding: 18px;
+          margin: 10px auto;
+          max-width: 400px;
+          text-align: center;
+          border-radius: 5px;
+        "
+      ></div>
+
+      <div id="result-infos" style="display: none">
+        <div id="total-values">
+          <h2>Resultado</h2>
+
+          <p style="font-weight: bold">
+            Valor Total Líquido: <span id="total-net-value"></span>
+          </p>
+
+          <p>
+            <strong>Valor Total Final:</strong> <span id="total-final"></span>
+          </p>
+          <p>
+            <strong>Valor Total Investido:</strong>
+            <span id="total-invested"></span>
+          </p>
+          <p>
+            <strong>Total em Juros Bruto:</strong>
+            <span id="total-interest-bruto"></span>
+          </p>
+          <p>
+            <strong>Total em Juros Líquido:</strong>
+            <span id="total-interest-liquido"></span>
+          </p>
+
+          <p>
+            <strong>Total de Impostos 🦁:</strong>
+            <span id="total-taxes"></span>
+          </p>
+        </div>
+        <table id="monthly-results" style="display: none">
+          <tr>
+            <th>Mês</th>
+            <th>Juros Bruto</th>
+            <th>Juros Líquido</th>
+            <th>Total Investido</th>
+            <th>Total Juros</th>
+            <th>Total Acumulado</th>
+            <th>IR (R$)</th>
+            <th>IOF (R$)</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="app/script.js"></script>
+  </body>
+</html>
